@@ -4,6 +4,8 @@ import React from 'react';
 import Select, { Option } from 'rc-select';
 import 'rc-select/assets/index.less';
 import ReactDOM from 'react-dom';
+import './vendors.css';
+import './main.css';
 
 class Test extends React.Component {
   state = {
@@ -49,6 +51,7 @@ class Test extends React.Component {
         <h2>Single Select</h2>
 
         <div style={{ width: 300 }}>
+
           <Select
             id="my-select"
             value={this.state.value}
@@ -81,25 +84,104 @@ class Test extends React.Component {
             })}
           </Select>
         </div>
-        <h2>native select</h2>
-        <select
-          value={this.state.value}
-          style={{ width: 500 }}
-          onChange={this.onChange}
-        >
-          <option value="01">jack</option>
-          <option value="11">lucy</option>
-          <option value="21" disabled>disabled</option>
-          <option value="31">yiminghe</option>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => {
-            return <option value={i} key={i}>{i}</option>;
-          })}
-        </select>
 
-        <p>
-          <button onClick={this.onDestroy}>destroy</button>
-        </p>
+
+            <div className="slds-docked_container.slds-is-fixed">
+        <div className="slds-is-relative">
+          <div className="slds-backdrop slds-backdrop--open" />
+          <div className="slds-modal--large slds-modal slds-fade-in-open slds-docked-composer-modal">
+            <div className="slds-modal__container ">
+              <div className="slds-docked-composer slds-grid slds-grid--vertical">
+                <div className="slds-docked-composer__header slds-grid slds-shrink-none">
+                  <div className="slds-media slds-media_center slds-no-space">
+                    <div className="slds-media__figure slds-m-right_x-small">
+                      <span className="slds-icon_container">x</span>
+                    </div>
+                    <div className="slds-media__body">
+                      <div
+                        className="slds-truncate slds-text-heading_small"
+                        title="新增职位"
+                      >
+                        新增职位
+                      </div>
+                    </div>
+                  </div>
+                  <div className="slds-col--bump-left slds-shrink-none">
+                    <button
+                      className="slds-button slds-button--icon"
+                      title="Minimize window"
+                    >
+                      <svg className="slds-button__icon">
+                        <use xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#minimize_window" />
+                      </svg>
+                    </button>
+                    <button
+                      className="slds-button slds-button--icon"
+                      title="Expand Composer"
+                    >
+                      <svg className="slds-button__icon">
+                        <use xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#expand_alt" />
+                      </svg>
+                    </button>{" "}
+                    <button
+                      className="slds-button slds-button--icon"
+                      title="关闭"
+                    >
+                      <svg className="slds-button__icon">
+                        <use xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="slds-docked-composer__body slds-p-around--medium  slds-scrollable--y popover-scroll-container slds-theme--default has-thin-scrollbar">
+                  <div className="slds-grid">
+                    <div className="form-wrapper slds-size--1-of-1">
+                      <div className="slds-grid slds-wrap edit-save">
+                        <div className="slds-section slds-is-open slds-size--1-of-1 slds-m-vertical--none">
+                          <h3 className="slds-section__title">基本信息</h3>
+                          <div className="slds-section__content">
+                            <fieldset>
+                              <div className="slds-grid slds-wrap slds-grid--pull-padded">
+                                <div className="field-container slds-is-relative1 slds-m-bottom--small slds-size--1-of-1 slds-p-horizontal--small slds-medium-size--1-of-2">
+                                  <div className="slds-form-element horizontal-form type-char">
+                                    <div className="slds-form-element__control field-content">
+                                      <div className="slds-form-element__group">
+                                        <Select
+                                          style={{ width: 100 }}
+                                          getPopupContainer={node => {
+                                            const target = node.closest(
+                                              ".field-container"
+                                            );
+                                            console.log(target);
+                                            return target;
+                                          }}
+                                        >
+                                          <Option value="jack">Jack</Option>
+                                          <Option value="lucy">Lucy</Option>
+                                          <Option value="yiminghe">
+                                            yiminghe
+                                          </Option>
+                                        </Select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      </div>
+
     );
   }
 }
